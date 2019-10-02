@@ -1,4 +1,4 @@
-
+# Legal
 Begin license text.
 Copyright 2019 <COPYRIGHT HOLDER>
 
