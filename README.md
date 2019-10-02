@@ -1,2 +1,2 @@
 # CS4900-QuadSolver
-Quad Solver
+a command line tool to solve quadratic equations to be  run on a linux operating system by an engineer. Tool will need to be installed by a technician. Also the tool will need to have high accuracy for four significant digits. In addition to the tool, there will be a manual page with clear and concise instructions for new users to understand what the tool does, and how to use it.
