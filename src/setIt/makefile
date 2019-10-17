@@ -5,8 +5,5 @@ setIt.o: setIt.h
 test: setItTest
 	./setItTest
 setItTest: setIt.o
-
-
-
 clean:
 	rm -f *.o setItTest setIt core
