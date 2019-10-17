@@ -1,10 +1,11 @@
 CC =gcc
 CFLAGS = -ggdb -Wall -pedantic -std=gnu11 -lm
-main: setit.h
-setIt.o:
-	../setItsetIt.h
+
+main: main.h ../setIt/setIt.o
+	$(CC) $(CFLAGS) main.o  ../setIt/setIt.o -o qsolve
+main.o: main.h
 test: main
-	./main
+	./qsolve
 
 clean:
-	rm -f *.o setItTest setIt core
+	rm -f *.o qsolve
