@@ -9,3 +9,4 @@ test: main
 
 clean:
 	rm -f *.o qsolve
+	cd ../setIt && $(MAKE) clean
