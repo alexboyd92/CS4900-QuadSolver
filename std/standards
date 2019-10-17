@@ -1,5 +1,22 @@
 This document contains coding standards.
 
+Camel casing should be used for variable names
 
-Variables
-Methods
+Function names should start with capital letters and be descriptive.
+Any additional words should be capitalized and no spaces.
+  example. PrintINT(int a) - would be expected that it prints an INT a
+
+Comments should be used to show the start and end of functions
+
+  //--Main--//
+  main{
+
+  }//end main
+
+Control statements should be commented above the statement if necessary.
+closing brackets should be commented as well
+
+//if statement to control input validation
+ if(valid){
+ 
+ }//end if
