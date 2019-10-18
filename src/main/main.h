@@ -5,5 +5,6 @@
 #include "../setIt/setIt.h"
 #include <stdlib.h>
 #include "../getIt/getit.h"
+#include "../solveIt/solveIt.h"
 
 #endif
