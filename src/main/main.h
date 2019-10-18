@@ -4,5 +4,6 @@
 #include <stdio.h>
 #include "../setIt/setIt.h"
 #include <stdlib.h>
+#include "../getIt/getit.h"
 
 #endif
