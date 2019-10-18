@@ -12,3 +12,4 @@ clean:
 	rm -f *.o qsolve
 	$(MAKE) -C ../setIt/ clean
 	$(MAKE) -C  ../getIt clean
+	$(MAKE) -C ../testing clean

@@ -5,3 +5,5 @@ testAll: setItTest
 setItTest: ../setIt/setIt.o
 testSetit: setItTest
 	./setItTest
+clean:
+	rm -f *.o setItTest
