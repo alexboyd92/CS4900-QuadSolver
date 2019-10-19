@@ -1,8 +1,11 @@
 #include "getit.h"
 
 //---GetValues---//
-void  GetValues(int flag){
-	//get from file
-	//get from console
+void  GetValues(){
+  char buf[BUFFERSIZE];
 
+  printf("Enter Values:");
+
+  buf == fgets(buf,BUFFERSIZE, stdin);
+  
 }//END MAIN()
