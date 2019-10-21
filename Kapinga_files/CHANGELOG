@@ -1,0 +1,44 @@
+FILE: CHANGELOG
+LICENSE: GPL 2,0 JKK Consulting 2019
+
+This is a quadratic equation solver  qsolve_roots.c 
+  int qsolve_roots(double a, double b, double c, double *x1, doube *x2)
+its header file is  qsolve_roots.h
+  
+as well as unit test files for qsolve_roots.x qsolvce_roots.h 
+
+Version Future
+	Validate input
+	Add logging
+	Reduce roundoff and add warnings 
+	unit test unstable problem
+	unit test boundary conditions 
+
+Version 0.82 under development
+	Added
+		tmonkey.c simple monkey tests 
+		test_discriminant.c development checks for discriminant < 0
+			do to roundoff when it should be == 0
+	Updated
+		qsolve_roots so *x1 and *x2 are not modified on failure ret > 1
+		t1 and t2 should check that x1 and x2 are not changed if ret > 1
+
+Version 0.81
+	Added	
+		t2.c tests for simple solutions that should be near exact
+
+	Updated
+		qsolve_roots.c return roots so that x1 <= x2
+		
+Version 0.80 
+	Added 
+		t1.c tests where simple solutions should be exact
+		README
+		CHANGELOG
+	Updated 
+		comments to the top of qsolve_roots.c
+		Makefile for t1 and cunit.h in another directory
+
+Version 0.5
+	initial code and a first set up of units tests in t0.c
+	qsolve_roots.c missing critical comments

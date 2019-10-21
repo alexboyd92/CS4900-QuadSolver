@@ -1,0 +1,101 @@
+File: cunit.txt
+License:  GPL 2.0 JKK Consulting 2019
+Version: 1.0
+
+
+The header file cunit.h provides a simple framework for unit testing
+C programs. It uses ANSI c11 macros and writes to stdout.i
+On environments where floats are not promoted to doubles
+separate macros might be needed for floats and doubles.
+
+Should have consider starting all these macros with a prefix 
+that starts with a cap, CU* is already taken.  ;-)
+
+This is intended to be trivial to read and extend, providing the
+basic ideas of unit testing without needing to learn a large 
+framework. For a list of unit testing systems for C see
+  https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#C
+There are several discussions of various C unit testing system such as
+  https://stackoverflow.com/questions/65820/unit-testing-c-code
+
+
+The general form of these macros is
+      assert<type>_<operator>(<str>, a, b)
+Where 
+  <type>
+  d   implies the arguments are integers
+  f   implies the arguments are floats or doubles
+  s   implies the arguments are strings
+
+  <type>  <operator>
+  d f s	  eq          equal
+  d f s   neq         not equal
+  f       eqaerr      absolute difference less than or equal to aerr
+  f       eqrerr      absoolute relative difference less than or equal to aerr
+  d f     le          less than or equal to
+  d f     nle         not ( less than or equal to )
+  d f     lt          less than
+  d f     nlt         not less than
+  d f     ge          greater than or equal to
+  d f     nge         not ( greater than or equal to )
+  d f     gt          greater than
+  d f     ngt         not greater than
+  f       normal      ieee-fp normal
+  f       nnormal     not ieee-fp normal
+  f       subnormal   ieee-fp subnormal
+  f       nsubnormal  not ieee-fp subnormal
+  f       nan         ieee-fp not an number
+  f       nnan        not ieee-fp not an number
+  f       inf         ieee-fp -infinity or infinity
+  f       ninf        not ( ieee-fp -infinity or infinity )
+  f       posinf      ieee-fp infinity
+  f       neginf      ieee-fp -infinity
+
+When an assert it true, nothing is printed.
+When an assert fail output is written to stdout ncludinfd:
+   the name of the C source file where the assert was located
+   line number of the assert in that file
+   string passed to the assert
+   the argument(s) passed to the assert
+
+The macro cunit_date(str)  prints out the current date and it's string argument
+the macro cunit_print(str)  prints it's string argument
+
+
+The current macro definitions start as:
+#define cunit_date(str) { \
+#define cunit_print(str) { \
+
+// Integer asserts
+#define assertd_eq(str,a,b) { \
+#define assertd_neq(str,a,b) { \
+#define assertd_ge(str,a,b) { \
+#define assertd_gt(str,a,b) { \
+#define assertd_le(str,a,b) { \
+#define assertd_lt(str,a,b) { \
+
+// Double or float assert (floats are promoted to doubles)
+#define assertf_eq(str,a,b) { \
+#define assertf_neq(str,a,b) { \
+#define assertf_eqaerr(str,a,b,aerr) { \
+#define assertf_eqrerr(str,a,b,rerr) { \
+#define assertf_ge(str,a,b) { \
+#define assertf_gt(str,a,b) { \
+#define assertf_le(str,a,b) { \
+#define assertf_lt(str,a,b) { \
+
+// String asserts, could add le lt ge gt
+#define asserts_eq(str,n,str1,str2) { \
+#define asserts_neq(str,n,str1,str2) { \
+
+// IEEE-fp testing
+#define assertf_normal(str,a) { \
+#define assertf_nnormal(str,a) { \
+#define assertf_subnnormal(str,a) { \
+#define assertf_nsubnormal(str,a) { \
+#define assertf_nan(str,a) { \
+#define assertf_nnan(str,a) { \
+#define assertf_inf(str,a) { \
+#define assertf_ninf(str,a) { \
+#define assertf_posinf(str,a) { \
+#define assertf_neginf(str,a) { \
