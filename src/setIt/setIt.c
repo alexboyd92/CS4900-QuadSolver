@@ -22,3 +22,13 @@ void  printResults(int flag,double a,double b){
 		}//end switch
 	}
 }// End print results
+// print Header
+void printHeader(){
+	printf("JKK Engineers Quadratic Solver  Version: 0.1.\n"
+	       "For Help type \"help\"\n"
+	       "To exit, type \"q\"\n"
+	       "To toggle logging, type \"log\"\n\n"
+	       "ax^2 + bx + c enter a,b and c"
+	       );
+
+}// end print header

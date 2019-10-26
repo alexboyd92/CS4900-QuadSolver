@@ -2,23 +2,24 @@
 
 //---GetValues---//
 char *  GetValues(){
-  // buffsize limit 100
-  char buf[BUFFSIZE];
-  //input returned to calling function
-  char * input;
 
-  printf("Enter values: ");
+	// buffsize limit 100
+	char buf[BUFFSIZE];
+	//input returned to calling function
+	char * input;
 
-  buf == fgets(buf,BUFFSIZE,stdin);
+	printf("Enter values: ");
 
-  input = (char *)malloc(strlen(buf) +1);
+	buf == fgets(buf,BUFFSIZE,stdin);
 
-  //if logging enabled output to file.
-  if(input == NULL) {
-          printf("Unable to allocate Memory");
-  }
+	input = (char *)malloc(strlen(buf) +1);
 
-  strcpy(input,buf);
+	//if logging enabled output to file.
+	if(input == NULL) {
+		printf("Unable to allocate Memory");
+	}
 
-  return input;
+	strcpy(input,buf);
+
+	return input;
 }//END getValues()
