@@ -14,3 +14,5 @@ clean:
 	$(MAKE) -C  ../getIt clean
 	$(MAKE) -C ../testing clean
 	$(MAKE) -C ../solveIt clean
+clear_logs:
+	rm -f ../../logs/*

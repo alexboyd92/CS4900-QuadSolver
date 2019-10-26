@@ -5,8 +5,10 @@
 int main()
 {
 	char timestamp[22];
-	time_t t = localtime(0);
-	strftime(timestamp, sizeof(timestamp), "%Y-%m-%d-%I:%M:%S", gmtime(&t));
+	time_t t = time(0);
+	struct tm * timeInfo;
+
+	strftime(timestamp, sizeof(timestamp), "%Y-%m-%d-%I:%M:%S", localtime(&t));
 	printf("the time is: %s\n", timestamp);
 	return EXIT_SUCCESS;
 }
