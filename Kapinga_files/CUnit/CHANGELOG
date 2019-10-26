@@ -1,0 +1,18 @@
+FILE: CHANGELOG 
+LICENSE: GPL 2.0 JKK Consulting 2019
+
+Version 1.0
+	added
+		CHANGELOG this file
+		license.h
+		cunit.txt brief documentation
+		ex_cunit.c examples of some macros usage
+	updated 
+		README
+		Makefile
+		cunit.h added IEEE-fp testing e.g. isnormai() ...
+			formatting for long strings
+			changed to g formating for floating point output
+	started testing.
+Version 0.8
+	released to cs 4900

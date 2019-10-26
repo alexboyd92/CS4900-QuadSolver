@@ -1,0 +1,61 @@
+FILE: README
+LICENSE: GPL 2.0 JKK Consulting 2019
+
+This directory contains a quadratic equation solver qsolve_roots()(Ifor 
+  ax^2 + bx + c = 0
+that solves for real roots x1 and x2 and unit test programs for qsolve_roots()
+
+Because the inputs a, b and c must be IEEE-fp32 normal values and
+we can compute in double precision IEEE-fp64 (or 80), a careful analysis 
+indicates that the roots can be computed to full IEEE-fp32
+precision (or better) with careful programing.
+
+In general it is hard to apply the usual equations for getting
+solutions without losing half the precision being computed with
+in some cases.
+
+README  This file
+Makefile for compiling the unit tests
+qsolve_roots.c the quadratic equations solver qsolve_roots()
+qsolve_roots.h tgeh heder fiel for qsoove()
+   int qsolve_roots(double a, double b, double c, double *x1, doube *x2) ;
+t1.c	unit tests for simple a, b, c with exact solutions
+t2.c	unit tests for simple a, b  c and not exect solutions (round off)
+t3.c	unit tests for simple bad input a == 0 and no real roots ...
+t4.c	unit tests for a, b and c not IEEE-fp normal, boundary tests
+t2.c	unit tests for boundary normal a, b  c and not exect solutions
+t5.c	unit tests for possible overflow or underflow
+t6.c	unit tests for possible roundoff problems, illconditioned  a b c
+t7.c    unit tests (monkey tests)
+The unit tests will be implemented in the order above.
+
+Also could add tests for 
+rstat    - target for getting the size (test and static) for qsolve_roots()
+rtime    - target for getting a time on 1000000 calls to qsolve_roots().
+rleaks   - test for run time space (memory leaks etc... 
+rcover   - coverage test
+
+programming standard compliance 
+logging of sucessfull runs, space and time
+over all error report (better to have an integrated unit test framework).
+
+Add some references to cunit.h, IEEE_fo and solving quadratic
+equations here;
+
+https://en.wikipedia.org/wiki/Quadratic_equation
+https://people.eecs.berkeley.edu/~wkahan/Qdrtcs.pdfA
+
+Forsythe has this and several articles on solving quadratic equations
+https://apps.dtic.mil/dtic/tr/fulltext/u2/657639.pdf
+http://i.stanford.edu/pub/cstr/reports/cs/tr/66/40/CS-TR-66-40.pdf
+
+Interesting but a little flaky
+https://arxiv.org/pdf/1702.05789.pdf
+
+Some good and poor points in
+https://stackoverflow.com/questions/48979861/numerically-stable-method-for-solving-quadratic-equations
+
+
+ Higham, Nicholas (2002), Accuracy and Stability of Numerical Algorithms (2nd ed.), SIAM, p. 10, ISBN 978-0-89871-521-7
+The more recent addition of this book has a chapter on solving quadratic 
+equations with code (that is downloadable).

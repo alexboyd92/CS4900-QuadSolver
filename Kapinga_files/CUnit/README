@@ -1,0 +1,16 @@
+// FILE: README
+// LICENSE: GPL 2.0 JKK Consulting 2019
+
+This is the demoninstraton cunit uniot testing framwork
+for C programs. 
+Note there are an number of cunit reting frameworks
+cunit -- see linux man page, installed on many linux systems
+   http://cunit.sourceforge.net
+et al
+
+Makefile	compiles ex_cunit and check
+README		this file
+check.c		place to put some tests of macros
+cunit.h		the cunit macros
+cunit.txt	description of the cunit macros
+ex_cunit.c	examples of cunit macro calls
