@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
 	// add timestamp to logfile name
 	strcat(writeLog,timestamp);
 	//file pointer for log file
-	FILE *logFile;
+	FILE *logFile=NULL;
 
 
 	// if argc == 4 call validate input
@@ -30,7 +30,11 @@ int main(int argc, char const *argv[]) {
 		{       //call solve
 			flag= solve(&a,&b,&c);
 			// call print results
-			printResults( flag,a,b);
+			if(logging==1) {
+				fprintf(logFile, "Entering solve with value of "
+				        "a:%.4f b:%.4f c:%.4f\n",a,b,c );
+			}
+			printResults( flag,a,b,logFile,logging);
 		}
 
 	}
@@ -79,7 +83,7 @@ int main(int argc, char const *argv[]) {
 					        "with values of a:%.4f b:%.4f c: %.4f and "
 					        "The flag variable set to :%d\n", a,b,c,flag);
 				}
-				printResults( flag,a,b);
+				printResults( flag,a,b,logFile,logging);
 			}
 
 		} while(!quit);
@@ -97,6 +101,8 @@ int main(int argc, char const *argv[]) {
 
 
 
-
+	if(logging==1) {
+		fclose(logFile);
+	}
 	return 0;
 }// End main//
