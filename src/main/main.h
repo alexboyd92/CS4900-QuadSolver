@@ -6,5 +6,5 @@
 #include <stdlib.h>
 #include "../getIt/getit.h"
 #include "../solveIt/solveIt.h"
-#define LOG_FILE "../log/log"
+#define LOG_FILE "../../logs/log_"
 #endif
