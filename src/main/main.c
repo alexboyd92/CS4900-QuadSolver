@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
 	time_t t= time(0);
 	char timestamp[26];
 	// get timeStamp
-	strftime(timestamp, sizeof(timestamp), "%Y-%m-%d-%H:%M:%S", gmtime(&t));
+	strftime(timestamp, sizeof(timestamp), "%Y-%m-%d-%H:%M:%S", localtime(&t));
 	//	hold status of loggin
 	int logging=1;
 	// to hold name of logfile
