@@ -28,7 +28,7 @@ void printHeader(){
 	       "For Help type \"help\"\n"
 	       "To exit, type \"q\"\n"
 	       "To toggle logging, type \"log\"\n\n"
-	       "ax^2 + bx + c enter a,b and c"
+	       "ax^2 + bx + c enter a,b and c\n"
 	       );
 
 }// end print header
