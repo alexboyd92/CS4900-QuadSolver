@@ -2,7 +2,7 @@ CC =gcc
 CFLAGS = -ggdb -Wall -pedantic -std=gnu11
 
 main: main.o ../setIt/setIt.o ../getIt/getit.o ../solveIt/solveIt.o
-	$(CC) $(CFLAGS) main.o  ../setIt/setIt.o  ../getIt/getit.o  ../solveIt/solveIt.o -o qsolve
+	$(CC) $(CFLAGS) main.o  ../setIt/setIt.o  ../getIt/getit.o  ../solveIt/solveIt.o -o qsolve -lm
 main.o: main.h
 
 test: main
