@@ -19,16 +19,17 @@ int solve( double *a, double *b, double *c){
 								} //end if
 								  //if statement to check if SQRT(is 0)
 								else if(rootVal==0) {
-																solveVal1 = -b2/(2.0 * a2);
+																a = -b2/(2.0 * a2);
 																//printf("roots are the same\n");
 																//printf("Root of quadratic equation is:%.3f\n", solveVal1);
+
 																return ONE_ROOT;
 								} //end if
 								  // else statement to check if SQRT(is valid)
 								else{
 																rootVal = sqrt(rootVal);
-																solveVal1 = ((-b2+rootVal)/(2.0*a2));
-																solveVal2 = (-b2-rootVal)/(2.0*a2);
+																a = ((-b2+rootVal)/(2.0*a2));
+																b = (-b2-rootVal)/(2.0*a2);
 																//printf("Roots of quadratic equation are:%.3f , %.3f", solveVal1, solveVal2);
 																return TWO_ROOTS;
 								} // end of else
