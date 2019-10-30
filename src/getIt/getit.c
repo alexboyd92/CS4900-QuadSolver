@@ -9,9 +9,7 @@ char *  GetValues(){
 	char * input;
 
 
-
-
-	printf("Enter values: ");
+  printf("Enter values: ");
 
 	buf == fgets(buf,BUFFSIZE,stdin);
 
