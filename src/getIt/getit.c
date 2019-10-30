@@ -3,13 +3,13 @@
 //---GetValues---//
 char *  GetValues(){
   // buffsize limit 100
-  char buf[BUFFSIZE];
+  char buf[BUFFERSIZE];
   //input returned to calling function
   char * input;
 
   printf("Enter values: ");
 
-  buf == fgets(buf,BUFFSIZE,stdin);
+  buf == fgets(buf,BUFFERSIZE,stdin);
 
   input = (char *)malloc(strlen(buf) +1);
 
