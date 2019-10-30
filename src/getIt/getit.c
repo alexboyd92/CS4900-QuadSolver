@@ -2,6 +2,7 @@
 
 //---GetValues---//
 char *  GetValues(){
+
   // buffsize limit 100
   char buf[BUFFERSIZE];
   //input returned to calling function
@@ -12,14 +13,15 @@ char *  GetValues(){
 
   buf == fgets(buf,BUFFERSIZE,stdin);
 
-  input = (char *)malloc(strlen(buf) +1);
 
-  //if logging enabled output to file.
-  if(input == NULL) {
-          printf("Unable to allocate Memory");
-  }
+	input = (char *)malloc(strlen(buf) +1);
 
-  strcpy(input,buf);
+	//if logging enabled output to file.
+	if(input == NULL) {
+		printf("Unable to allocate Memory");
+	}
 
-  return input;
+	strcpy(input,buf);
+
+	return input;
 }//END getValues()
