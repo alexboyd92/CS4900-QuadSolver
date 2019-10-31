@@ -13,5 +13,7 @@ int main(int argc, char const *argv[]) {
 	printResults(1,-120,20);
 	// check for higher than a double
 	printResults(1,DBL_MAX+2,1);
+
+
 	return 0;
 }
