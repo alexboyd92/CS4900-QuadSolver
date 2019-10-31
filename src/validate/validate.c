@@ -54,9 +54,9 @@ int ValidRange(int flag,double* a, double* b, double* c){
         }//end if b range
         if(*c > FLT_MAX || *c < FLT_MIN) {
                 inRange = -1;
-                if(flag == 1){
-                printf("Variable C is outside acceptable range\n");
-              }
+                if(flag == 1) {
+                        printf("Variable C is outside acceptable range\n");
+                }
         }//end if c range
 
         return inRange;
