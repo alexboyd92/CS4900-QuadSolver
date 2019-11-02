@@ -22,8 +22,8 @@ int main(int argc, char const *argv[]) {
 
 	// if argc == 4 call validate input
 	if(argc==4) {
-		//validateInput()
-		if(validateFlag==3)
+		Validate(logging, logFile, a, b, c);
+		if(validateFlag	 ==-1)
 			//help();
 			;
 		else
@@ -44,31 +44,19 @@ int main(int argc, char const *argv[]) {
 		printHeader();
 		do {
 			// call get input
-			//getit();
+		 //input =	GetValues(logging, logFile);
+		 //if input is q then quit
 			// then validate input
 			if(logging==1) {
 				logFile=fopen(writeLog,"a");
-				//fprintf(logFile, "Entering validate" );
+				fprintf(logFile, "Entering validate" );
 			}
-
-			//validate();
+		 validateFlag  =	Validate(logging, logFile, a, b, c);
 			// if validate fails call help
-			if(validateFlag==3)
-
+			if(validateFlag==-1){
+				//invalid input;
 				//help();
-				;
-			else if(validateFlag==4) {
-				logging^=1;
-				printf("Logging enabled\n" );
 			}
-			else if(validateFlag==5) {
-				//  if input = q quit =1
-				if(logging==1)
-					fprintf(logFile, "Exiting" );
-				if(validateFlag==5)
-					quit=1;
-			}
-
 			else{
 				//call solve
 				if(logging==1) {
@@ -84,22 +72,15 @@ int main(int argc, char const *argv[]) {
 					        "The flag variable set to :%d\n", a,b,c,flag);
 				}
 				printResults( flag,a,b,logFile,logging);
-			}
+			}//end else
 
-		} while(!quit);
+		} while(!quit); //end do while loop
 
-	}
+	}//end Elseif(arg1)
 	else{
+		//call help on argv not 1 or 4
 		//help();
 	}
-
-
-
-
-
-
-
-
 
 	if(logging==1) {
 		fclose(logFile);

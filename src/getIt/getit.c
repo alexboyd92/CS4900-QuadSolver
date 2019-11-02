@@ -1,7 +1,7 @@
 #include "getit.h"
 
 //---GetValues---//
-char *  GetValues(int flag){
+char *  GetValues(int flag,FILE * logFile){
         // buffsize limit 100
         char buf[BUFFERSIZE];
         //input returned to calling function
@@ -14,7 +14,9 @@ char *  GetValues(int flag){
 
         //if logging enabled output to file.
         if(input == NULL) {
-                printf("Unable to allocate Memory\n");
+          if(flag == 1){
+                fprintf(logFile,"Unable to allocate Memory\n");
+              }
         }
         strcpy(input,buf);
 

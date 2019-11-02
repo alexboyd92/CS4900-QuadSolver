@@ -2,7 +2,7 @@
 
 
 //--Tokenize--//
-int Tokenize(char * input, double* a, double* b, double* c){
+int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, double* c){
         int check = 0;
         int tokenCount = 0;
         char * nptr;
@@ -30,6 +30,9 @@ int Tokenize(char * input, double* a, double* b, double* c){
         //more or less than 2 spaces
         if(tokenCount != 3) {
                 check = -1;
+            if(flag == 1){
+              fprintf(logFile,"Invalid input format during tokenize function\n");
+            }
         }//end if
 
         return check;
@@ -37,25 +40,25 @@ int Tokenize(char * input, double* a, double* b, double* c){
 
 
 //--ValidRange--//
-int ValidRange(int flag,double* a, double* b, double* c){
+int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
         int inRange = 0;
 
         if(*a > FLT_MAX || *a < FLT_MIN) {
                 inRange = -1;
                 if(flag == 1) {
-                        printf("Variable A is outside acceptable range\n");
+                        fprintf(logFile,"Variable A is outside acceptable range\n");
                 }
         }//end if a range
         if(*b > FLT_MAX || *b < FLT_MIN) {
                 inRange = -1;
                 if(flag == 1) {
-                        printf("Variable B is outside acceptable range\n");
+                        fprintf(logFile,"Variable B is outside acceptable range\n");
                 }
         }//end if b range
         if(*c > FLT_MAX || *c < FLT_MIN) {
                 inRange = -1;
                 if(flag == 1) {
-                        printf("Variable C is outside acceptable range\n");
+                        fprintf(logFile,"Variable C is outside acceptable range\n");
                 }
         }//end if c range
 
@@ -63,20 +66,20 @@ int ValidRange(int flag,double* a, double* b, double* c){
 }//end ValidFloat()
 
 //--ValidState--//
-int ValidState(int flag, double* a, double* b, double* c){
+int ValidState(int flag,FILE * logFile, double* a, double* b, double* c){
         int check;
 
         if(isinf(*a)==1 || isinf(*b)==1 || isinf(*c)==1) {
                 check = -1;
                 if(flag == 1) {
-                        printf("Input contains INF\n");
+                        fprintf(logFile,"Input contains INF\n");
                 }
         }//end if inf abc
 
         if(isnan(*a) == 1 || isnan(*b) == 1 || isnan(*c) == 1) {
                 check = -1;
                 if(flag == 1) {
-                        printf("Input contains NaN\n");
+                        fprintf(logFile,"Input contains NaN\n");
                 }
         }//end if nan abc
 
@@ -85,19 +88,19 @@ int ValidState(int flag, double* a, double* b, double* c){
 
 
 //--VALIDATE--//
-int Validate (char * input, inf flag, double* a, double* b, double* c){
+int Validate (char * input, inf flag, FILE * logFile, double* a, double* b, double* c){
         int check = 0;//return variable
         //too long or too short input char array
         if(strlen(input) > 140) {
                 check = -1;
                 if(flag == 1) {
-                        printf("Error input too long\n");
+                        fprintf(logfile,"Error input too long\n");
                 }
         }
         if(strlen(input) < 5) {
                 check = -1;
                 if(flag == 1) {
-                        printf("Error input too short\n");
+                        fprintf(logFile,"Error input too short\n");
                 }
         }
         //convert char * input to doubles
