@@ -8,7 +8,6 @@ char *  GetValues(){
         //input returned to calling function
         char * input;
 
-
         printf("Enter values: ");
 
         buf == fgets(buf,BUFFERSIZE,stdin);

@@ -100,7 +100,6 @@ int Validate (char * input, inf flag, double* a, double* b, double* c){
                         printf("Error input too short\n");
                 }
         }
-
         //convert char * input to doubles
         if(Tokenize(input, a, b, c) < 0 ) {
                 check = -1;
