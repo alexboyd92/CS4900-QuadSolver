@@ -1,6 +1,7 @@
 #include "validate.h"
 
 
+
 //--Tokenize--//
 int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, double* c){
         int check = 0;
@@ -36,11 +37,17 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
         }//end if
 
         return check;
+
 }//end Tokenize()
 
 
 //--ValidRange--//
+<<<<<<< HEAD
 int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
+=======
+
+int ValidRange(int flag,double* a, double* b, double* c){
+>>>>>>> 77c38d604939ca7a240ef2ebd964064c4845a46c
         int inRange = 0;
 
         if(*a > FLT_MAX || *a < FLT_MIN) {
@@ -84,11 +91,18 @@ int ValidState(int flag,FILE * logFile, double* a, double* b, double* c){
         }//end if nan abc
 
         return check;
+=======
+
 }//end ValidState()
 
 
 //--VALIDATE--//
+<<<<<<< HEAD
 int Validate (char * input, inf flag, FILE * logFile, double* a, double* b, double* c){
+=======
+
+int Validate (char * input, inf flag, double* a, double* b, double* c){
+>>>>>>> 77c38d604939ca7a240ef2ebd964064c4845a46c
         int check = 0;//return variable
         //too long or too short input char array
         if(strlen(input) > 140) {
@@ -114,4 +128,6 @@ int Validate (char * input, inf flag, FILE * logFile, double* a, double* b, doub
                 check = -1;
         }
         return check;
+
+
 }//end Validate()

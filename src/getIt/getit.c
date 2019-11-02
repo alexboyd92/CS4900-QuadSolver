@@ -8,7 +8,13 @@ char *  GetValues(int flag,FILE * logFile){
         char * input;
         printf("Enter values: ");
 
+<<<<<<< HEAD
         fgets(buf,BUFFERSIZE,stdin);
+=======
+
+        buf == fgets(buf,BUFFERSIZE,stdin);
+>>>>>>> 77c38d604939ca7a240ef2ebd964064c4845a46c
+
 
         input = (char *)malloc(strlen(buf) +1);
 
