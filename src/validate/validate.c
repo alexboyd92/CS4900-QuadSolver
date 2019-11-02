@@ -1,6 +1,7 @@
 #include "validate.h"
 
 
+
 //--Tokenize--//
 int Tokenize(char * input, double* a, double* b, double* c){
         int check = 0;
@@ -33,10 +34,12 @@ int Tokenize(char * input, double* a, double* b, double* c){
         }//end if
 
         return check;
+
 }//end Tokenize()
 
 
 //--ValidRange--//
+
 int ValidRange(int flag,double* a, double* b, double* c){
         int inRange = 0;
 
@@ -81,10 +84,13 @@ int ValidState(int flag, double* a, double* b, double* c){
         }//end if nan abc
 
         return check;
+=======
+
 }//end ValidState()
 
 
 //--VALIDATE--//
+
 int Validate (char * input, inf flag, double* a, double* b, double* c){
         int check = 0;//return variable
         //too long or too short input char array
@@ -112,4 +118,6 @@ int Validate (char * input, inf flag, double* a, double* b, double* c){
                 check = -1;
         }
         return check;
+
+
 }//end Validate()

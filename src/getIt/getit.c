@@ -11,7 +11,9 @@ char *  GetValues(){
 
         printf("Enter values: ");
 
+
         buf == fgets(buf,BUFFERSIZE,stdin);
+
 
         input = (char *)malloc(strlen(buf) +1);
 
