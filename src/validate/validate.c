@@ -42,14 +42,8 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 
 
 //--ValidRange--//
-<<<<<<< HEAD
 int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
-=======
-
-int ValidRange(int flag,double* a, double* b, double* c){
->>>>>>> 77c38d604939ca7a240ef2ebd964064c4845a46c
         int inRange = 0;
-
         if(*a > FLT_MAX || *a < FLT_MIN) {
                 inRange = -1;
                 if(flag == 1) {
