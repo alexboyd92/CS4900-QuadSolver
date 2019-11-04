@@ -22,7 +22,7 @@ Formatting standards
   }//end main
 
 4.Control statements should be commented above the statement if necessary.
-closing brackets should be commented as well
+closing brackets should be commented as well if the block is larger than a few lines
 
 //if statement to control input validation
  if(valid){

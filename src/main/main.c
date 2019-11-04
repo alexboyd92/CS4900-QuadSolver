@@ -23,12 +23,26 @@ int main(int argc, char const *argv[]) {
 
 	// if argc == 4 call validate input
 	if(argc==4) {
-		Validate(logging, logFile, a, b, c); //validate input from user
-		if(validateFlag  ==-1){
+		char * input = malloc(argc + 1);
+		strcpy(input, argv[1]);
+		strcat(input, " ");
+		strcat(input, argv[2]);
+		strcat(input, " ");
+		strcat(input, argv[3]);
+		printf("input is %s\n", input);
+		validateFlag = Validate(input, logging, logFile, &a, &b, &c); //validate input from user
+
+		if(validateFlag  == -1){
 			userTypedHelp();
 		}
 		else
-		{       //call solve
+		{
+			//validate passed safe to convert
+			sscanf(argv[1],"%lf", &a);
+			sscanf(argv[2],"%lf", &b);
+			sscanf(argv[3],"%lf", &c);
+
+			//call solve
 			flag= solve(&a,&b,&c);
 			// call print results
 			if(logging==1) {
@@ -46,17 +60,13 @@ int main(int argc, char const *argv[]) {
 			// call get Input
 	 		input =	GetValues(logging, logFile);
 
-			if(strcmp(input,"q") == 0){
-				quit = -1;
-			}
-
 			//if input is q then quit
 			// then validate input
 			if(logging==1) {
 				logFile=fopen(writeLog,"a");
 				fprintf(logFile, "Entering validate" );
 			}
-			validateFlag = Validate(logging, logFile, a, b, c);
+			validateFlag = Validate(input, logging, logFile, &a, &b, &c);
 			// if validate fails call help
 			if(validateFlag==-1) {
 				//invalid input;
@@ -66,9 +76,10 @@ int main(int argc, char const *argv[]) {
 				//call solve
 				if(logging==1) {
 					fprintf(logFile, "Entering solve with value of "
-					        "a:%.4f b:%.4f c:%.4f\n",a,b,c );
+						"a:%.4f b:%.4f c:%.4f\n",a,b,c );
 				}
 				flag= solve(&a,&b,&c);
+
 				// call print results
 				if(logging==1) {
 					fprintf(logFile, "Entering print results "
@@ -86,9 +97,9 @@ int main(int argc, char const *argv[]) {
 		//call help on argv not 1 or 4
 		//help();
 	}
-
 	if(logging==1) {
 		fclose(logFile);
 	}
+
 	return 0;
 }// End main//
