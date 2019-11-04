@@ -1,5 +1,6 @@
 #include "main.h"
 #include <time.h>
+
 // Main //
 int main(int argc, char const *argv[]) {
 	int quit=1;
@@ -23,11 +24,12 @@ int main(int argc, char const *argv[]) {
 	// if argc == 4 call validate input
 	if(argc==4) {
 		//validateInput()
-		if(validateFlag==3)
-			//help();
-			;
+		if(validateFlag==-1)
+			// call HELP
+			userTypedHelp();
+
 		else
-		{       //call solve
+		{         //call solve
 			flag= solve(&a,&b,&c);
 			// call print results
 			if(logging==1) {
@@ -52,12 +54,12 @@ int main(int argc, char const *argv[]) {
 			}
 
 			//validate();
-			// if validate fails call help
-			if(validateFlag==3)
+			// if validate fails call userTypedHelp
+			if(validateFlag==-1)
 
-				//help();
-				;
-			else if(validateFlag==4) {
+				userTypedHelp();
+			// check if logging is enabled
+			else if(validateFlag==2) {
 				logging^=1;
 				printf("Logging enabled\n" );
 			}
@@ -90,7 +92,7 @@ int main(int argc, char const *argv[]) {
 
 	}
 	else{
-		//help();
+		userTypedHelp();
 	}
 
 
