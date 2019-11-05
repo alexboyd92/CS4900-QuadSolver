@@ -11,15 +11,21 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 	while(token) {
 		if(tokenCount == 0){
 			*a = strtof(token,&nptr);
-	//		printf("a is : %38.38f\n", *a);
+			if(flag == 1){
+			  fprintf(logFile,"a is: %38.38f\n", *a);
+			}//end logging
 		}//end token1 if
 		if(tokenCount == 1) {
 			*b = strtof(token,&nptr);
-		//	 printf("b is : %38.38f\n", *b);
+			if(flag == 1){
+			 fprintf(logFile,"b is : %38.38f\n", *b);
+		 }//end logging
 		}//end token2 if
 		if(tokenCount == 2) {
 			*c = strtof(token,&nptr);
-		//	printf("c is : %38.38f\n", *c);
+			if(flag == 1){
+				fprintf(logFile,"c is : %38.38f\n", *c);
+			}//end logging
 		}//end token3 if
 		token = strtok(NULL, " ");
 		++tokenCount;

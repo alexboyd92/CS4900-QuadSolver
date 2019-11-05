@@ -6,6 +6,7 @@ int main(int argc, char const *argv[]) {
 	int validateFlag=0;//holds return variable from validate function
 	int logging=0; // sets logging
 	char * input; //pointer for getit return
+	int argvTotalLength = 0;
 
 	//variables for quadratic equation
 	double a = 0;
@@ -28,7 +29,12 @@ int main(int argc, char const *argv[]) {
 	// if argc == 4 call validate input
 	// default no logging enabled and run program.
 	if(argc==4) {
-		char input[500];
+		//get size of argv
+		for(int i =0; i < argc; i++){
+			argvTotalLength+= strlen(argv[i]);
+		}
+		
+		char input[argvTotalLength];
 		strcpy(input, argv[1]);
 		strcat(input, " ");
 		strcat(input, argv[2]);
