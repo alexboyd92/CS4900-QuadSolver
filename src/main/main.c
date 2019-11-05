@@ -2,6 +2,8 @@
 #include <time.h>
 // Main //
 int main(int argc, char const *argv[]) {
+
+
 								int quit=1;
 								int validateFlag=0;
 								double a,b,c;
@@ -105,4 +107,5 @@ int main(int argc, char const *argv[]) {
 																fclose(logFile);
 								}
 								return 0;
+
 }// End main//

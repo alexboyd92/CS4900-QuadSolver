@@ -4,7 +4,7 @@
 
 #ifndef GETIT_H
 #define GETIT_H
-#define BUFFSIZE 100
+#define BUFFERSIZE 100
 
 extern char *  GetValues();
 #endif
