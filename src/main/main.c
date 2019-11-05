@@ -23,9 +23,8 @@ int main(int argc, char const *argv[]) {
 	// if argc == 4 call validate input
 	if(argc==4) {
 		Validate(logging, logFile, a, b, c);
-		if(validateFlag	 ==-1)
-			//help();
-			;
+		if(validateFlag  ==-1)
+			userTypedHelp();
 		else
 		{       //call solve
 			flag= solve(&a,&b,&c);
@@ -44,18 +43,18 @@ int main(int argc, char const *argv[]) {
 		printHeader();
 		do {
 			// call get input
-		 //input =	GetValues(logging, logFile);
-		 //if input is q then quit
+			//input =	GetValues(logging, logFile);
+			//if input is q then quit
 			// then validate input
 			if(logging==1) {
 				logFile=fopen(writeLog,"a");
 				fprintf(logFile, "Entering validate" );
 			}
-		 validateFlag  =	Validate(logging, logFile, a, b, c);
+			validateFlag  =        Validate(logging, logFile, a, b, c);
 			// if validate fails call help
-			if(validateFlag==-1){
+			if(validateFlag==-1) {
 				//invalid input;
-				//help();
+				userTypedHelp();
 			}
 			else{
 				//call solve
