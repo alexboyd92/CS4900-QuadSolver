@@ -9,7 +9,7 @@ char *  GetValues(int flag,FILE * logFile){
 	printf("Enter values: ");
 
 	fgets(buf,BUFFERSIZE,stdin);
-	while ( getchar() != '\n' );
+	//while ( getchar() != '\n' );
 
 	input = (char *)malloc(strlen(buf) +1);
 	//if logging enabled output to file.
