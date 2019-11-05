@@ -1,0 +1,10 @@
+Entering solve with value of a:10.0000 b:20.0000 c:1.0000
+value of that is in the sqrt 360.000000 
+ + root has a rounding error- root has a rounding errorEntering print results with values of a:-0.0513 b:-1.9487 c: 1.0000 and The flag variable set to :1
+In print results with values of a:-0.0513 b:-1.9487  and The flag variable set to :1
+Printing that there the two result -0.0513 -1.9487
+Entering solve with value of a:20.0000 b:20.0000 c:20.0000
+value of that is in the sqrt -1200.000000 
+ Entering print results with values of a:20.0000 b:20.0000 c: 20.0000 and The flag variable set to :2
+In print results with values of a:20.0000 b:20.0000  and The flag variable set to :2
+Printing that there are no real roots
