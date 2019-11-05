@@ -81,7 +81,6 @@ int main(int argc, char const *argv[]) {
 
 			// then validate input
 			if(logging==1) {
-				printf("%s\n","Here you great " );
 				logFile=fopen(writeLog,"a");
 				//	fprintf(logFile, "Entering validate" );
 			}
