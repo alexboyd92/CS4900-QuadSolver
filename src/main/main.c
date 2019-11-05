@@ -48,9 +48,9 @@ int main(int argc, char const *argv[]) {
 			sscanf(argv[3],"%lf", &c);
 
 			//call solve
-			flag= solve(&a,&b,&c);
+			flag= solve(&a,&b,&c,logging,logFile);
 			// call print results
-			printResults( flag,a,b,logFile,logging);
+			printResults(flag,a,b,logFile,logging);
 		}
 	}//end if argc==4
 	// do while if no arguments are specified
@@ -91,7 +91,7 @@ int main(int argc, char const *argv[]) {
 					fprintf(logFile, "Entering solve with value of "
 						"a:%.4f b:%.4f c:%.4f\n",a,b,c );
 				}
-				flag= solve(&a,&b,&c);
+				flag= solve(&a,&b,&c,logging,logFile);
 
 				// call print results
 				if(logging==1) {
