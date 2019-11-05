@@ -74,43 +74,48 @@ int main(int argc, char const *argv[]) {
 				//if input is log then enable logging
 				if(returned == 0) {
 					logging = 1; // enable logging
+					logFile=fopen(writeLog,"a");
+					fprintf(logFile, "Logging enabled\n" );
 
 				}
 				else {
 
 				}
 			}
+			if(returned!=0) {
 
+				// then validate input
+				if(logging==1) {
 
-			// then validate input
-			if(logging==1) {
-				logFile=fopen(writeLog,"a");
-				//	fprintf(logFile, "Entering validate" );
+					fprintf(logFile, "Entering validate" );
+				}
+
+				validateFlag = Validate(input, logging, logFile, &a, &b, &c);
+				// if validate fails call help
+				if(validateFlag==-1) {
+					//invalid input;
+					userTypedHelp();
+				}
+				else{
+					//call solve
+					if(logging==1) {
+						fprintf(logFile, "Entering solve with value of "
+						        "a:%.4f b:%.4f c:%.4f\n",a,b,c );
+					}
+					flag= solve(&a,&b,&c,logging,logFile);
+
+					// call print results
+					if(logging==1) {
+						fprintf(logFile, "Entering print results "
+						        "with values of a:%.4f b:%.4f c: %.4f and "
+						        "The flag variable set to :%d\n", a,b,c,flag);
+
+					}
+					printResults( flag,a,b,logFile,logging);
+				}                                //end else
 			}
 
-			validateFlag = Validate(input, logging, logFile, &a, &b, &c);
-			// if validate fails call help
-			if(validateFlag==-1) {
-				//invalid input;
-				userTypedHelp();
-			}
-			else{
-				//call solve
-				if(logging==1) {
-					fprintf(logFile, "Entering solve with value of "
-					        "a:%.4f b:%.4f c:%.4f\n",a,b,c );
-				}
-				flag= solve(&a,&b,&c,logging,logFile);
 
-				// call print results
-				if(logging==1) {
-					fprintf(logFile, "Entering print results "
-					        "with values of a:%.4f b:%.4f c: %.4f and "
-					        "The flag variable set to :%d\n", a,b,c,flag);
-
-				}
-				printResults( flag,a,b,logFile,logging);
-			}        //end else
 
 		} while(quit == 0); //end do while loop
 
