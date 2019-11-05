@@ -2,17 +2,22 @@
 #include <time.h>
 // Main //
 int main(int argc, char const *argv[]) {
-	int quit=1;
-	int validateFlag=0;
+	int quit=1; // while loop control variable -1 on exit.
+	int validateFlag=0;//holds return variable from validate function
+	int logging=0; // sets logging
 	char * input; //pointer for getit return
-	double a,b,c;
-	int flag;
-	time_t t= time(0);
+
+	//variables for quadratic equation
+	double a = 0;
+	double b = 0;
+	double c = 0;
+	int flag = 0;
+
+	time_t t= time(0); // time stamp for log file
 	char timestamp[26];
 	// get timeStamp
 	strftime(timestamp, sizeof(timestamp), "%Y-%m-%d-%H:%M:%S", localtime(&t));
-	//	hold status of loggin
-	int logging=1;
+
 	// to hold name of logfile
 	char writeLog[40]=LOG_FILE;
 	// add timestamp to logfile name
@@ -20,8 +25,8 @@ int main(int argc, char const *argv[]) {
 	//file pointer for log file
 	FILE *logFile=NULL;
 
-
 	// if argc == 4 call validate input
+	// default no logging enabled and run program.
 	if(argc==4) {
 		char * input = malloc(argc + 1);
 		strcpy(input, argv[1]);
@@ -29,7 +34,7 @@ int main(int argc, char const *argv[]) {
 		strcat(input, argv[2]);
 		strcat(input, " ");
 		strcat(input, argv[3]);
-		printf("input is %s\n", input);
+
 		validateFlag = Validate(input, logging, logFile, &a, &b, &c); //validate input from user
 
 		if(validateFlag  == -1){
@@ -45,10 +50,6 @@ int main(int argc, char const *argv[]) {
 			//call solve
 			flag= solve(&a,&b,&c);
 			// call print results
-			if(logging==1) {
-				fprintf(logFile, "Entering solve with value of "
-				        "a:%.4f b:%.4f c:%.4f\n",a,b,c );
-			}
 			printResults( flag,a,b,logFile,logging);
 		}
 	}//end if argc==4
@@ -60,12 +61,24 @@ int main(int argc, char const *argv[]) {
 			// call get Input
 	 		input =	GetValues(logging, logFile);
 
+			int returned = 0;
+			returned = strcmp(input,"q");
 			//if input is q then quit
+			if(returned == 0){
+				quit =-1;// set control to -1 to exit loop
+			}
+			returned = strcmp(input,"log");
+			//if input is log then enable logging
+			if(returned == 0){
+				logging = 1; // enable logging
+			}
+
 			// then validate input
 			if(logging==1) {
 				logFile=fopen(writeLog,"a");
 				fprintf(logFile, "Entering validate" );
 			}
+
 			validateFlag = Validate(input, logging, logFile, &a, &b, &c);
 			// if validate fails call help
 			if(validateFlag==-1) {
@@ -93,7 +106,7 @@ int main(int argc, char const *argv[]) {
 		} while(quit > 0); //end do while loop
 
 	}//end Elseif(arg1)
-	else{
+	else {
 		//call help on argv not 1 or 4
 		//help();
 	}
