@@ -11,14 +11,13 @@ char *  GetValues(int flag,FILE * logFile){
         fgets(buf,BUFFERSIZE,stdin);
 
         input = (char *)malloc(strlen(buf) +1);
-
         //if logging enabled output to file.
         if(input == NULL) {
           if(flag == 1){
                 fprintf(logFile,"Unable to allocate Memory\n");
-              }
+          }
         }
         strcpy(input,buf);
-
+				printf("returning\n");
         return input;
 }//END getValues()
