@@ -17,6 +17,5 @@ char *  GetValues(int flag,FILE * logFile){
           }
         }
         strcpy(input,buf);
-				printf("returning\n");
         return input;
 }//END getValues()

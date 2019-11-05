@@ -9,18 +9,17 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 	char * token = strtok(input," ");
 	//cases:
 	while(token) {
-		/* printf("Token: %s \n", token); */
-		if(tokenCount == 0) {
+		if(tokenCount == 0){
 			*a = strtof(token,&nptr);
-			/*    printf("a is : %38.38f\n", *a); */
+	//		printf("a is : %38.38f\n", *a);
 		}//end token1 if
 		if(tokenCount == 1) {
 			*b = strtof(token,&nptr);
-			/* printf("b is : %38.38f\n", *b); */
+		//	 printf("b is : %38.38f\n", *b);
 		}//end token2 if
 		if(tokenCount == 2) {
 			*c = strtof(token,&nptr);
-			/* printf("c is : %38.38f\n", *c); */
+		//	printf("c is : %38.38f\n", *c);
 		}//end token3 if
 		token = strtok(NULL, " ");
 		++tokenCount;
@@ -35,7 +34,6 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 	}//end if
 
 	return check;
-
 }//end Tokenize()
 
 
@@ -112,5 +110,6 @@ int Validate (char * input, int flag, FILE * logFile, double* a, double* b, doub
 	if(ValidState(flag,logFile,a,b,c)< 0) {
 		check = -1;
 	}
+	printf("chck is %d\n", check);
 	return check;
 }//end Validate()
