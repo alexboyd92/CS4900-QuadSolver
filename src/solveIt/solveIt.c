@@ -35,15 +35,15 @@ int solve( double *a, double *b, double *c, int logging, FILE * logFile){
 
 		returnValue = ONE_ROOT;
 	}  //end if
-	 // else statement to check if SQRT(is valid)
+	   // else statement to check if SQRT(is valid)
 
 	else{
 		rootVal = sqrt(rootVal);
 		*a = ((-b2+rootVal)/(2.0*a2));
 		*b = (-b2-rootVal)/(2.0*a2);
 		float f = (float)*a;
-		printf("%f\n", *a );
-		printf("%f\n", *b );
+		//	printf("%f\n", *a );
+		//	printf("%f\n", *b );
 		if (*a!=f) {
 			if(logging==1) {
 				fprintf(logFile, "+ root has a rounding error");
@@ -61,15 +61,15 @@ int solve( double *a, double *b, double *c, int logging, FILE * logFile){
 
 			roundMsg = 1; // set roundMSG
 		}//end if b!=f
-                                                      // end of else
+		// end of else
 
 
 		returnValue = TWO_ROOTS;
 	}//end else
 
-	if(roundMsg == 1){
+	if(roundMsg == 1) {
 		printf("Just a heads up!!\n With the numbers you put in there could be a rounding error with your output\n" );
 	}
-	                                                            // end of else
- 	return returnValue;
+	// end of else
+	return returnValue;
 } // end of solve function

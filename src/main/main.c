@@ -82,7 +82,7 @@ int main(int argc, char const *argv[]) {
 
 				}
 
-				flag= solve(&a,&b,&c,logging,logFile);
+
 
 			}
 			if(returned!=0) {
