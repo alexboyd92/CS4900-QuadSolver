@@ -17,6 +17,10 @@ char *  GetValues(int flag,FILE * logFile){
                 fprintf(logFile,"Unable to allocate Memory\n");
           }
         }
+        else if(flag == 1){
+          fprintf(logFile,"Input from user is %s\n", buf);
+        }
+
         strcpy(input,buf);
         return input;
 }//END getValues()
