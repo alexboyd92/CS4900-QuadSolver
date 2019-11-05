@@ -2,7 +2,7 @@
 #define  NO_ROOTS 2
 #define TWO_ROOTS 1
 #define ONE_ROOT  0
-int solve( double *a, double *b, double *c, int logging){
+int solve( double *a, double *b, double *c, int logging, FILE * logFile){
 								double a2 = *a, b2 = *b, c2=*c;
 								double rootVal = pow(b2, 2)-(4.0*a2*c2);
 								if(logging==1) {
