@@ -50,7 +50,7 @@ int main(int argc, char const *argv[]) {
 			//call solve
 			flag= solve(&a,&b,&c,logging,logFile);
 			// call print results
-			printResults( flag,a,b,logFile,logging);
+			printResults(flag,a,b,logFile,logging);
 		}
 	}//end if argc==4
 	// do while if no arguments are specified
@@ -81,8 +81,12 @@ int main(int argc, char const *argv[]) {
 				else {
 
 				}
+
+				flag= solve(&a,&b,&c,logging,logFile);
+
 			}
 			if(returned!=0) {
+
 
 				// then validate input
 				if(logging==1) {
