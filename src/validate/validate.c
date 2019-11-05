@@ -42,32 +42,30 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 
 
 //--ValidRange--//
-
 int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
+        int inRange = 0;
+        if(*a > FLT_MAX || *a < FLT_MIN) {
+                inRange = -1;
+                if(flag == 1) {
+                        fprintf(logFile,"Variable A is outside acceptable range\n");
+                }
+        }//end if a range
+        if(*b > FLT_MAX || *b < FLT_MIN) {
+                inRange = -1;
+                if(flag == 1) {
+                        fprintf(logFile,"Variable B is outside acceptable range\n");
+                }
+        }//end if b range
+        if(*c > FLT_MAX || *c < FLT_MIN) {
+                inRange = -1;
+                if(flag == 1) {
+                        fprintf(logFile,"Variable C is outside acceptable range\n");
+                }
+        }//end if c range
+
+        return inRange;
 
 
-	int inRange = 0;
-
-	if(*a > FLT_MAX || *a < FLT_MIN) {
-		inRange = -1;
-		if(flag == 1) {
-			fprintf(logFile,"Variable A is outside acceptable range\n");
-		}
-	}//end if a range
-	if(*b > FLT_MAX || *b < FLT_MIN) {
-		inRange = -1;
-		if(flag == 1) {
-			fprintf(logFile,"Variable B is outside acceptable range\n");
-		}
-	}//end if b range
-	if(*c > FLT_MAX || *c < FLT_MIN) {
-		inRange = -1;
-		if(flag == 1) {
-			fprintf(logFile,"Variable C is outside acceptable range\n");
-		}
-	}//end if c range
-
-	return inRange;
 }//end ValidFloat()
 
 //--ValidState--//
