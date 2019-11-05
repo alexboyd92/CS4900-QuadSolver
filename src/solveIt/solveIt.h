@@ -3,6 +3,7 @@
 #include <math.h>
 #ifndef SOLVEIT_H
 #define SOLVEIT_H
-extern int solve( double *a, double *b, double *c);
+#define LOG_FILE "../../logs/log_"
+extern int solve( double *a, double *b, double *c, int logging);
 
 #endif
