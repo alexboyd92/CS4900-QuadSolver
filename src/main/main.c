@@ -31,12 +31,17 @@ int main(int argc, char const *argv[]) {
 		strcat(input, argv[3]);
 		printf("input is %s\n", input);
 		validateFlag = Validate(input, logging, logFile, &a, &b, &c); //validate input from user
-		
+
 		if(validateFlag  == -1){
 			userTypedHelp();
 		}
 		else
 		{
+			//validate passed safe to convert
+			sscanf(argv[1],"%lf", &a);
+			sscanf(argv[2],"%lf", &b);
+			sscanf(argv[3],"%lf", &c);
+
 			//call solve
 			flag= solve(&a,&b,&c);
 			// call print results

@@ -110,6 +110,6 @@ int Validate (char * input, int flag, FILE * logFile, double* a, double* b, doub
 	if(ValidState(flag,logFile,a,b,c)< 0) {
 		check = -1;
 	}
-	printf("chck is %d\n", check);
+
 	return check;
 }//end Validate()
