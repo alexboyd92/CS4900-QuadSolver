@@ -14,7 +14,7 @@ int solve( double *a, double *b, double *c, int logging, FILE * logFile){
 																								"sqrt %f \n",rootVal);
 								}
 								//if statement to check if SQRT(Negitive or Nan or +-infinite)
-								if((rootVal<0 || fpclassify(rootVal) == FP_NAN || fpclassify(rootVal) == FP_INFINITE) && a2!= 0 || a2==0) {
+								if( a2==0 || ((rootVal<0 || fpclassify(rootVal) == FP_NAN || fpclassify(rootVal) == FP_INFINITE) && a2!= 0 )) {
 																returnValue = NO_ROOTS;
 								}
 								//end if
