@@ -4,6 +4,7 @@
 int main(int argc, char const *argv[]) {
 	int quit=1;
 	int validateFlag=0;
+	char * input; //pointer for getit return
 	double a,b,c;
 	int flag;
 	time_t t= time(0);
@@ -22,9 +23,10 @@ int main(int argc, char const *argv[]) {
 
 	// if argc == 4 call validate input
 	if(argc==4) {
-		Validate(logging, logFile, a, b, c);
-		if(validateFlag  ==-1)
+		Validate(logging, logFile, a, b, c); //validate input from user
+		if(validateFlag  ==-1){
 			userTypedHelp();
+		}
 		else
 		{       //call solve
 			flag= solve(&a,&b,&c);
@@ -35,22 +37,26 @@ int main(int argc, char const *argv[]) {
 			}
 			printResults( flag,a,b,logFile,logging);
 		}
-
-	}
+	}//end if argc==4
 	// do while if no arguments are specified
 	// if argc is 1
 	else if(argc==1) {
 		printHeader();
 		do {
-			// call get input
-			//input =	GetValues(logging, logFile);
+			// call get Input
+	 		input =	GetValues(logging, logFile);
+
+			if(strcmp(input,"q") == 0){
+				quit = -1;
+			}
+
 			//if input is q then quit
 			// then validate input
 			if(logging==1) {
 				logFile=fopen(writeLog,"a");
 				fprintf(logFile, "Entering validate" );
 			}
-			validateFlag  =        Validate(logging, logFile, a, b, c);
+			validateFlag = Validate(logging, logFile, a, b, c);
 			// if validate fails call help
 			if(validateFlag==-1) {
 				//invalid input;
@@ -62,18 +68,18 @@ int main(int argc, char const *argv[]) {
 					fprintf(logFile, "Entering solve with value of "
 					        "a:%.4f b:%.4f c:%.4f\n",a,b,c );
 				}
-
 				flag= solve(&a,&b,&c);
 				// call print results
 				if(logging==1) {
 					fprintf(logFile, "Entering print results "
 					        "with values of a:%.4f b:%.4f c: %.4f and "
 					        "The flag variable set to :%d\n", a,b,c,flag);
+
 				}
 				printResults( flag,a,b,logFile,logging);
 			}//end else
 
-		} while(!quit); //end do while loop
+		} while(quit > 0); //end do while loop
 
 	}//end Elseif(arg1)
 	else{

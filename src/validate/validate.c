@@ -1,7 +1,5 @@
 #include "validate.h"
 
-
-
 //--Tokenize--//
 int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, double* c){
 	int check = 0;
@@ -42,10 +40,7 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 
 
 //--ValidRange--//
-
 int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
-
-
 	int inRange = 0;
 
 	if(*a > FLT_MAX || *a < FLT_MIN) {
@@ -71,7 +66,7 @@ int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
 }//end ValidFloat()
 
 //--ValidState--//
-int ValidState(int flag,FILE * logFile, double* a, double* b, double* c){
+int ValidState(int flag, FILE * logFile, double* a, double* b, double* c){
 	int check;
 
 	if(isinf(*a)==1 || isinf(*b)==1 || isinf(*c)==1) {
@@ -89,20 +84,16 @@ int ValidState(int flag,FILE * logFile, double* a, double* b, double* c){
 	}//end if nan abc
 
 	return check;
-	=======
-
 }//end ValidState()
 
-
 //--VALIDATE--//
-
-int Validate (char * input, inf flag, double* a, double* b, double* c){
+int Validate (char * input, int flag, FILE * logFile, double* a, double* b, double* c){
 	int check = 0;//return variable
 	//too long or too short input char array
 	if(strlen(input) > 140) {
 		check = -1;
 		if(flag == 1) {
-			fprintf(logfile,"Error input too long\n");
+			fprintf(logFile,"Error input too long\n");
 		}
 	}
 	if(strlen(input) < 5) {
@@ -112,16 +103,14 @@ int Validate (char * input, inf flag, double* a, double* b, double* c){
 		}
 	}
 	//convert char * input to doubles
-	if(Tokenize(input, a, b, c) < 0 ) {
+	if(Tokenize(flag,logFile,input, a, b, c) < 0 ) {
 		check = -1;
 	}
-	if(ValidRange(a,b,c) < 0) {
+	if(ValidRange(flag,logFile,a,b,c) < 0) {
 		check = -1;
 	}
-	if(ValidState(a,b,c)< 0) {
+	if(ValidState(flag,logFile,a,b,c)< 0) {
 		check = -1;
 	}
 	return check;
-
-
 }//end Validate()
