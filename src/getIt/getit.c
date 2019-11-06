@@ -13,7 +13,7 @@ char *  GetValues(int flag,FILE * logFile){
         printf("Enter values: ");
 
 								fgets(buf,BUFFERSIZE,stdin);
-								//while ( getchar() != '\n' );
+
 								__fpurge (stdin);
 
 
