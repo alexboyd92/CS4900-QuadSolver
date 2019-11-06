@@ -1,5 +1,29 @@
 #include "validate.h"
 
+//--PointerCheck--//
+int PointerCheck(int flag, FILE * logFile,char * token, char * nptr){
+	int check = 0;
+
+	if(nptr == token){
+		printf("Warning! %s NOT A DECIMAL\n", token);
+		check = -1;
+		
+		if(flag == 1){
+					fprintf(logFile,"Warning! %s not a decimal\n", token);
+		}
+	}
+	else if(*nptr){
+		printf("Warning! %s Contains Additional Characters\n", token);
+		check = -1;
+
+		if(flag == 1){
+					fprintf(logFile,"Warning! %s Contains Additional Characters\n", token);
+		}
+	}//end if else strtof cases
+
+	return check;
+}//end PointerCheck();
+
 //--Tokenize--//
 int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, double* c){
 	int check = 0;
@@ -11,18 +35,21 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 	while(token) {
 		if(tokenCount == 0){
 			*a = strtof(token,&nptr);
+			check = PointerCheck(flag, logFile, token, nptr);
 			if(flag == 1){
 			  fprintf(logFile,"a is: %38.38f\n", *a);
 			}//end logging
 		}//end token1 if
 		if(tokenCount == 1) {
 			*b = strtof(token,&nptr);
+			check = PointerCheck(flag, logFile, token, nptr);
 			if(flag == 1){
 			 fprintf(logFile,"b is : %38.38f\n", *b);
 		 }//end logging
 		}//end token2 if
 		if(tokenCount == 2) {
 			*c = strtof(token,&nptr);
+			check = PointerCheck(flag, logFile, token, nptr);
 			if(flag == 1){
 				fprintf(logFile,"c is : %38.38f\n", *c);
 			}//end logging
