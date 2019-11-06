@@ -1,5 +1,5 @@
 CC =gcc
-CFLAGS = -ggdb -Wall -pedantic -std=gnu11
+CFLAGS = -ggdb -Wall -pedantic -std=c11
 
 main: main.o ../setIt/setIt.o ../getIt/getit.o ../solveIt/solveIt.o ../help/help.o ../validate/validate.o
 	$(CC) $(CFLAGS) main.o  ../setIt/setIt.o  ../getIt/getit.o ../help/help.o ../solveIt/solveIt.o  ../validate/validate.o -o qsolve -lm
