@@ -91,7 +91,7 @@ int main(int argc, char const *argv[]) {
 				// then validate input
 				if(logging==1) {
 
-					fprintf(logFile, "Entering validate" );
+					fprintf(logFile, "Entering validate\n" );
 				}
 
 				validateFlag = Validate(input, logging, logFile, &a, &b, &c);
