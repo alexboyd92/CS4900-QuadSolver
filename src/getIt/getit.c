@@ -3,7 +3,7 @@
 //---GetValues---//
 char *  GetValues(int flag,FILE * logFile){
 
-        // buffsize limit 100
+        // buffsize limit 256
         char buf[BUFFERSIZE];
         //input returned to calling function
         char * input;
