@@ -1,0 +1,12 @@
+Logging enabled
+Replacing newline in buf from fgets
+Input from user is test
+Entering validateError input too short
+Warning! test not a decimal
+a is: 0.00000000000000000000000000000000000000
+Invalid input format during tokenize function
+Variable A is outside acceptable range
+Variable B is outside acceptable range
+Variable C is outside acceptable range
+Replacing newline in buf from fgets
+Input from user is q
