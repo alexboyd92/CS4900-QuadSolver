@@ -79,7 +79,7 @@ int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
 	int inRange = 0;
 
 
-  if((*a > FLT_MAX || *a < FLT_MIN) && *a != 0 ) {
+  if((*a > FLT_MAX || *a < FLT_MIN) && *a == 0 ) {
 		inRange = -1;
 		if(flag == 1) {
 			fprintf(logFile,"Variable A is outside acceptable range\n");
