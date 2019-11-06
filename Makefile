@@ -2,10 +2,11 @@ install:
 	$(MAKE) -C src/main/ main
 	mv src/main/qsolve .
 
-
-uninstall:
+clean:
 	rm ./qsolve
 	$(MAKE) -C src/main/ clean
+uninstall:
+
 	rm -rf ../CS4900-QuadSolver
 
 
