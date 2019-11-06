@@ -6,21 +6,10 @@
 #include <assert.h>
 #include <limits.h>
 #include <float.h>
-#include <math.h> 
+#include <math.h>
 #include <string.h>
 
 
-// Later for a log file name
-// extern FILE *cunit_log; 
-// int cunit_init();
-// 
-// #define cunit_open(log) { \
-//     if((cunit_log=fopen( log, "w") == NULL ) { \
-//      cunit_log = stderr; \
-//     } \
-// }
-// #define cunit_close fclose(cunit_log)
-// #define cunit_flush() fflush(cunit_log)
 #define cunit_log stdout
 
 #define cunit_date(str) { \
