@@ -33,7 +33,7 @@ int main(int argc, char const *argv[]) {
 		for(int i =0; i < argc; i++){
 			argvTotalLength+= strlen(argv[i]);
 		}
-		
+
 		char input[argvTotalLength];
 		strcpy(input, argv[1]);
 		strcat(input, " ");
@@ -74,7 +74,8 @@ int main(int argc, char const *argv[]) {
 			if(returned == 0) {
 				quit =-1;// set control to -1 to exit loop
 
-			}else{
+			}
+			else{
 				returned = strcmp(input,"log");
 
 				//if input is log then enable logging
@@ -84,20 +85,13 @@ int main(int argc, char const *argv[]) {
 					fprintf(logFile, "Logging enabled\n" );
 
 				}
-				else {
-
-				}
-
-
-
-			}
+			}//end else returned == 0
 			if(returned!=0) {
-
 
 				// then validate input
 				if(logging==1) {
 
-					fprintf(logFile, "Entering validate" );
+					fprintf(logFile, "Entering validate\n" );
 				}
 
 				validateFlag = Validate(input, logging, logFile, &a, &b, &c);
@@ -122,10 +116,8 @@ int main(int argc, char const *argv[]) {
 
 					}
 					printResults( flag,a,b,logFile,logging);
-				}                                //end else
-			}
-
-
+				} //end else
+			}//end  if returned != 0
 
 		} while(quit == 0); //end do while loop
 

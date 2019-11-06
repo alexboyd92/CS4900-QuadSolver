@@ -77,27 +77,31 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
 
 	int inRange = 0;
-
-
-  if((*a > FLT_MAX || *a < FLT_MIN) && *a == 0 ) {
+	if(*a == 0){
+		inRange = -1;
+		if(flag == 1) {
+			fprintf(logFile,"Variable A cannot be 0\n");
+		}
+	}
+  else if((*a > FLT_MAX || *a < -FLT_MAX) && (*a < FLT_MIN || *a > -FLT_MIN)) {
 		inRange = -1;
 		if(flag == 1) {
 			fprintf(logFile,"Variable A is outside acceptable range\n");
 		}
 	}//end if a range
 	if(*b == 0){
-
+		//b is ok to be 0
 	}
-	else if(*b > FLT_MAX || *b < FLT_MIN) {
+	else if((*b > FLT_MAX || *b < -FLT_MAX) && (*b < FLT_MIN || *b > -FLT_MIN)) {
 		inRange = -1;
 		if(flag == 1) {
 			fprintf(logFile,"Variable B is outside acceptable range\n");
 		}
 	}//end if b range
 	if(*c == 0){
-
+		//c is ok to be 0
 	}
-	else if(*c > FLT_MAX || *c < FLT_MIN) {
+	else if((*c > FLT_MAX || *c < -FLT_MAX) && (*c < FLT_MIN || *c > -FLT_MIN)) {
 		inRange = -1;
 		if(flag == 1) {
 			fprintf(logFile,"Variable C is outside acceptable range\n");
