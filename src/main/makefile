@@ -17,4 +17,4 @@ clean:
 	$(MAKE) -C ../help clean
 	$(MAKE) -C ../validate clean
 clear_logs:
-	rm -f ../../logs/*
+	rm -f ../../logs/log_*

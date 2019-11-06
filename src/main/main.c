@@ -73,7 +73,7 @@ int main(int argc, char const *argv[]) {
 			//if input is q then quit
 			if(returned == 0) {
 				quit =-1;// set control to -1 to exit loop
-				break;
+
 			}else{
 				returned = strcmp(input,"log\n");
 
@@ -88,7 +88,7 @@ int main(int argc, char const *argv[]) {
 
 				}
 
-				flag= solve(&a,&b,&c,logging,logFile);
+
 
 			}
 			if(returned!=0) {
@@ -137,6 +137,8 @@ int main(int argc, char const *argv[]) {
 	if(logging==1) {
 		fclose(logFile);
 	}
-
+	if((argc!=4)&(argc!=1)) {
+		userTypedHelp();
+	}
 	return 0;
 }// End main//
