@@ -5,15 +5,12 @@ int PointerCheck(int flag, FILE * logFile,char * token, char * nptr){
 	int check = 0;
 
 	if(nptr == token){
-		printf("Warning! %s NOT A DECIMAL\n", token);
 		check = -1;
-
 		if(flag == 1){
 					fprintf(logFile,"Warning! %s not a decimal\n", token);
 		}
 	}
 	else if(*nptr){
-		printf("Warning! %s Contains Additional Characters\n", token);
 		check = -1;
 
 		if(flag == 1){
@@ -67,7 +64,7 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 		}
 	}//end if
 
-	//check token returns from pointercheck function for A B C 
+	//check token returns from pointercheck function for A B C
 	if(checkToken[0] == -1 || checkToken[1] == -1 || checkToken[2] == -1){
 		check = -1;
 	}
