@@ -9,9 +9,9 @@ uninstall:
 
 	rm -rf ../CS4900-QuadSolver
 unit-test:
-	$(MAKE) -C src/testing testAll
+	$(MAKE) -C src/testing testAll > unitTest.txt
 system-test:
-	$(MAKE) -C src/main/ test
+	$(MAKE) -C src/main/ test > systemTest.txt
 
 tar:
 	tar -zcvf ../CS4900-QuadSolver.tgz ../CS4900-QuadSolver/
