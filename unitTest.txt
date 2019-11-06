@@ -1,11 +1,5 @@
 make[1]: Entering directory '/home/alex/Documents/Current_classes/CS4900-SenDes/CS4900-QuadSolver/src/testing'
-gcc -ggdb -Wall -pedantic -std=gnu11   -c -o ../setIt/setIt.o ../setIt/setIt.c
-gcc -ggdb -Wall -pedantic -std=gnu11    setItTest.c ../setIt/setIt.o   -o setItTest
-gcc -ggdb -Wall -pedantic -std=gnu11    buffersizecheck.c ../getIt/getit.h   -o buffersizecheck
 ./buffersizecheck
-gcc -ggdb -Wall -pedantic -std=gnu11   -c -o ../solveIt/solveIt.o ../solveIt/solveIt.c
-gcc -ggdb -Wall -pedantic -std=gnu11    solveTest.c ../solveIt/solveIt.o /lib/libm.so   -o solveTest
-gcc -ggdb -Wall -pedantic -std=gnu11   -c -o ../validate/validate.o ../validate/validate.c
 gcc -ggdb -Wall -pedantic -std=gnu11    validateTest.c ../validate/validate.o   -o validateTest
 ./setItTest ./buffersizecheck ./bufferTest ./solveTest ./validateTest
 make[1]: Leaving directory '/home/alex/Documents/Current_classes/CS4900-SenDes/CS4900-QuadSolver/src/testing'
