@@ -1,7 +1,7 @@
 CC =gcc
 CFLAGS = -ggdb -Wall -pedantic -std=gnu11
-testAll: setItTest buffersizecheck
-	./setItTest ./buffersizecheck
+testAll: setItTest buffersizecheck bufferTest solveTest validateTest
+	./setItTest ./buffersizecheck ./bufferTest ./solveTest ./validateTest
 setItTest: ../setIt/setIt.o
 testSetit: setItTest
 	./setItTest
@@ -27,4 +27,4 @@ testSolve: solveTest
 	./solveTest
 
 clean:
-	rm -f *.o setItTest
+	rm -f *.o setItTest validateTest bufferTest buffersizecheck solveTest 
