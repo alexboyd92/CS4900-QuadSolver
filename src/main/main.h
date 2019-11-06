@@ -8,5 +8,6 @@
 #include <stdlib.h>
 #include "../getIt/getit.h"
 #include "../solveIt/solveIt.h"
+#include "../validate/validate.h"
 #define LOG_FILE "../../logs/log_"
 #endif

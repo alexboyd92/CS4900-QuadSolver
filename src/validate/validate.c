@@ -1,28 +1,56 @@
 #include "validate.h"
 
+//--PointerCheck--//
+int PointerCheck(int flag, FILE * logFile,char * token, char * nptr){
+	int check = 0;
 
+	if(nptr == token){
+		check = -1;
+		if(flag == 1){
+					fprintf(logFile,"Warning! %s not a decimal\n", token);
+		}
+	}
+	else if(*nptr){
+		check = -1;
+
+		if(flag == 1){
+					fprintf(logFile,"Warning! %s Contains Additional Characters\n", token);
+		}
+	}//end if else strtof cases
+
+	return check;
+}//end PointerCheck();
 
 //--Tokenize--//
 int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, double* c){
 	int check = 0;
+	int checkToken[3];
 	int tokenCount = 0;
 	char * nptr;
 
 	char * token = strtok(input," ");
 	//cases:
 	while(token) {
-		/* printf("Token: %s \n", token); */
-		if(tokenCount == 0) {
+		if(tokenCount == 0){
 			*a = strtof(token,&nptr);
-			/*    printf("a is : %38.38f\n", *a); */
+			checkToken[0] = PointerCheck(flag, logFile, token, nptr);
+			if(flag == 1){
+			  fprintf(logFile,"a is: %38.38f\n", *a);
+			}//end logging
 		}//end token1 if
 		if(tokenCount == 1) {
 			*b = strtof(token,&nptr);
-			/* printf("b is : %38.38f\n", *b); */
+			checkToken[1] = PointerCheck(flag, logFile, token, nptr);
+			if(flag == 1){
+			 fprintf(logFile,"b is : %38.38f\n", *b);
+		 }//end logging
 		}//end token2 if
 		if(tokenCount == 2) {
 			*c = strtof(token,&nptr);
-			/* printf("c is : %38.38f\n", *c); */
+			checkToken[2] = PointerCheck(flag, logFile, token, nptr);
+			if(flag == 1){
+				fprintf(logFile,"c is : %38.38f\n", *c);
+			}//end logging
 		}//end token3 if
 		token = strtok(NULL, " ");
 		++tokenCount;
@@ -36,31 +64,40 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 		}
 	}//end if
 
-	return check;
+	//check token returns from pointercheck function for A B C
+	if(checkToken[0] == -1 || checkToken[1] == -1 || checkToken[2] == -1){
+		check = -1;
+	}
 
+	return check;
 }//end Tokenize()
 
 
 //--ValidRange--//
-
 int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
-
 
 	int inRange = 0;
 
-	if(*a > FLT_MAX || *a < FLT_MIN) {
+
+  if((*a > FLT_MAX || *a < FLT_MIN) && *a != 0 ) {
 		inRange = -1;
 		if(flag == 1) {
 			fprintf(logFile,"Variable A is outside acceptable range\n");
 		}
 	}//end if a range
-	if(*b > FLT_MAX || *b < FLT_MIN) {
+	if(*b == 0){
+
+	}
+	else if(*b > FLT_MAX || *b < FLT_MIN) {
 		inRange = -1;
 		if(flag == 1) {
 			fprintf(logFile,"Variable B is outside acceptable range\n");
 		}
 	}//end if b range
-	if(*c > FLT_MAX || *c < FLT_MIN) {
+	if(*c == 0){
+
+	}
+	else if(*c > FLT_MAX || *c < FLT_MIN) {
 		inRange = -1;
 		if(flag == 1) {
 			fprintf(logFile,"Variable C is outside acceptable range\n");
@@ -71,7 +108,7 @@ int ValidRange(int flag, FILE * logFile, double* a, double* b, double* c){
 }//end ValidFloat()
 
 //--ValidState--//
-int ValidState(int flag,FILE * logFile, double* a, double* b, double* c){
+int ValidState(int flag, FILE * logFile, double* a, double* b, double* c){
 	int check;
 
 	if(isinf(*a)==1 || isinf(*b)==1 || isinf(*c)==1) {
@@ -89,20 +126,16 @@ int ValidState(int flag,FILE * logFile, double* a, double* b, double* c){
 	}//end if nan abc
 
 	return check;
-	=======
-
 }//end ValidState()
 
-
 //--VALIDATE--//
-
-int Validate (char * input, inf flag, double* a, double* b, double* c){
+int Validate (char * input, int flag, FILE * logFile, double* a, double* b, double* c){
 	int check = 0;//return variable
 	//too long or too short input char array
 	if(strlen(input) > 140) {
 		check = -1;
 		if(flag == 1) {
-			fprintf(logfile,"Error input too long\n");
+			fprintf(logFile,"Error input too long\n");
 		}
 	}
 	if(strlen(input) < 5) {
@@ -112,16 +145,15 @@ int Validate (char * input, inf flag, double* a, double* b, double* c){
 		}
 	}
 	//convert char * input to doubles
-	if(Tokenize(input, a, b, c) < 0 ) {
+	if(Tokenize(flag,logFile,input, a, b, c) < 0 ) {
 		check = -1;
 	}
-	if(ValidRange(a,b,c) < 0) {
+	if(ValidRange(flag,logFile,a,b,c) < 0) {
 		check = -1;
 	}
-	if(ValidState(a,b,c)< 0) {
+	if(ValidState(flag,logFile,a,b,c)< 0) {
 		check = -1;
 	}
+
 	return check;
-
-
 }//end Validate()
