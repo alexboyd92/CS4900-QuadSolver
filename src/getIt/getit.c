@@ -19,7 +19,7 @@ char *  GetValues(int flag,FILE * logFile){
 
         //replace first occurance of 'newline char' from fgets
         if((replace = strchr(buf,'\n')) != NULL){
-          replace = '\0';
+          *replace = '\0';
           if(flag == 1){
             fprintf(logFile, "Replacing newline in buf from fgets\n");
           }
