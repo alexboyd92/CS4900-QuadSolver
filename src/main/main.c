@@ -68,14 +68,14 @@ int main(int argc, char const *argv[]) {
 			input = GetValues(logging, logFile);
 
 			int returned = 0;
-			returned = strcmp(input,"q\n");
+			returned = strcmp(input,"q");
 
 			//if input is q then quit
 			if(returned == 0) {
 				quit =-1;// set control to -1 to exit loop
 
 			}else{
-				returned = strcmp(input,"log\n");
+				returned = strcmp(input,"log");
 
 				//if input is log then enable logging
 				if(returned == 0) {
