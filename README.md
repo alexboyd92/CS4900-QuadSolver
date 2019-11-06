@@ -2,9 +2,11 @@
 a command line tool to solve quadratic equations to be  run on a linux operating system by an engineer. Tool will need to be installed by a technician. Also the tool will need to have high accuracy for four significant digits.
 
 
-How to install
+## How to install
+    type make install
 
-How to run
+
+## How to run
   After installation you can run the program with by typing in ./qsolve.
   Either type ./qsolve A B C where A B C are expected values for the quadratic equation
     or enter the program by typing ./qsolve and entering values for A B C when prompted.

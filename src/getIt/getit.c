@@ -1,7 +1,8 @@
 #include "getit.h"
-
+#include <stdio_ext.h>
 //---GetValues---//
 char *  GetValues(int flag,FILE * logFile){
+
         // buffsize limit 100
         char buf[BUFFERSIZE];
         //input returned to calling function
@@ -11,7 +12,10 @@ char *  GetValues(int flag,FILE * logFile){
 
         printf("Enter values: ");
 
-        fgets(buf,BUFFERSIZE,stdin);
+								fgets(buf,BUFFERSIZE,stdin);
+								//while ( getchar() != '\n' );
+								__fpurge (stdin);
+
 
         //replace first occurance of 'newline char' from fgets
         if((replace = strchr(buf,'\n')) != NULL){
@@ -33,6 +37,7 @@ char *  GetValues(int flag,FILE * logFile){
           fprintf(logFile,"Input from user is %s\n", buf);
         }
 
-        strcpy(input,buf);
-        return input;
+
+								strcpy(input,buf);
+								return input;
 }//END getValues()

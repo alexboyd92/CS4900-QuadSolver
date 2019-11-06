@@ -4,7 +4,7 @@
 
 #ifndef GETIT_H
 #define GETIT_H
-#define BUFFERSIZE 100
+#define BUFFERSIZE 256
 
 extern char *  GetValues(int flag,FILE * logFile);
 #endif
