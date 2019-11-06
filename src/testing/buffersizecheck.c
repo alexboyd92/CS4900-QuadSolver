@@ -5,7 +5,7 @@
 
 int main(int argc, char const *argv[]) {
 
-assertd_eq("buffersize",BUFFERSIZE,101);
+assertd_eq("buffersize",BUFFERSIZE,256);
 
   return 0;
 }
