@@ -4,8 +4,9 @@ install:
 
 
 uninstall:
-	rm ./qsolve 
+	rm ./qsolve
 	$(MAKE) -C src/main/ clean
+	rm -rf ../CS4900-QuadSolver
 
 
 tar:
