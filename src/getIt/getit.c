@@ -1,5 +1,5 @@
 #include "getit.h"
-
+#include <stdio_ext.h>
 //---GetValues---//
 char *  GetValues(int flag,FILE * logFile){
 
