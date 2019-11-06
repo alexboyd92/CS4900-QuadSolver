@@ -7,7 +7,7 @@ int PointerCheck(int flag, FILE * logFile,char * token, char * nptr){
 	if(nptr == token){
 		printf("Warning! %s NOT A DECIMAL\n", token);
 		check = -1;
-		
+
 		if(flag == 1){
 					fprintf(logFile,"Warning! %s not a decimal\n", token);
 		}
@@ -27,6 +27,7 @@ int PointerCheck(int flag, FILE * logFile,char * token, char * nptr){
 //--Tokenize--//
 int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, double* c){
 	int check = 0;
+	int checkToken[3];
 	int tokenCount = 0;
 	char * nptr;
 
@@ -35,21 +36,21 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 	while(token) {
 		if(tokenCount == 0){
 			*a = strtof(token,&nptr);
-			check = PointerCheck(flag, logFile, token, nptr);
+			checkToken[0] = PointerCheck(flag, logFile, token, nptr);
 			if(flag == 1){
 			  fprintf(logFile,"a is: %38.38f\n", *a);
 			}//end logging
 		}//end token1 if
 		if(tokenCount == 1) {
 			*b = strtof(token,&nptr);
-			check = PointerCheck(flag, logFile, token, nptr);
+			checkToken[1] = PointerCheck(flag, logFile, token, nptr);
 			if(flag == 1){
 			 fprintf(logFile,"b is : %38.38f\n", *b);
 		 }//end logging
 		}//end token2 if
 		if(tokenCount == 2) {
 			*c = strtof(token,&nptr);
-			check = PointerCheck(flag, logFile, token, nptr);
+			checkToken[2] = PointerCheck(flag, logFile, token, nptr);
 			if(flag == 1){
 				fprintf(logFile,"c is : %38.38f\n", *c);
 			}//end logging
@@ -65,6 +66,11 @@ int Tokenize(int flag, FILE * logFile, char * input, double* a, double* b, doubl
 			fprintf(logFile,"Invalid input format during tokenize function\n");
 		}
 	}//end if
+
+	//check token returns from pointercheck function for A B C 
+	if(checkToken[0] == -1 || checkToken[1] == -1 || checkToken[2] == -1){
+		check = -1;
+	}
 
 	return check;
 }//end Tokenize()
