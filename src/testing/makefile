@@ -19,5 +19,12 @@ testValidate: validateTest
 	./validateTest
 
 
+
+
+solveTest: ../solveIt/solveIt.o -lm
+
+testSolve: solveTest
+	./solveTest
+
 clean:
 	rm -f *.o setItTest

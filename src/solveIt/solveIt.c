@@ -68,7 +68,7 @@ int solve( double *a, double *b, double *c, int logging, FILE * logFile){
 								}//end else
 
 								if(roundMsg == 1) {
-																printf("Just a heads up!!\n With the numbers you put in there could be a rounding error with your output\n" );
+														//		printf("Just a heads up!!\n With the numbers you put in there could be a rounding error with your output\n" );
 								}
 								// end of else
 								return returnValue;
