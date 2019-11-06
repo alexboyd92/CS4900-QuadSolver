@@ -2,9 +2,12 @@
 #include "../validate/validate.h"
 
 
+
 int main(){
 
-  char * input="123";
+
+//Test to make sure validate returns -1 with bad input
+  char * input=" ";
   double a=2;
   double b=1;
   double c=2;
