@@ -1,0 +1,12 @@
+make[1]: Entering directory '/home/alex/Documents/Current_classes/CS4900-SenDes/CS4900-QuadSolver/src/main'
+gcc -ggdb -Wall -pedantic -std=c11   -c -o main.o main.c
+gcc -ggdb -Wall -pedantic -std=c11   -c -o ../getIt/getit.o ../getIt/getit.c
+gcc -ggdb -Wall -pedantic -std=c11   -c -o ../help/help.o ../help/help.c
+gcc -ggdb -Wall -pedantic -std=c11 main.o  ../setIt/setIt.o  ../getIt/getit.o ../help/help.o ../solveIt/solveIt.o  ../validate/validate.o -o qsolve -lm
+./qsolve 20 20 20
+No real roots found
+./qsolve 10 1 1
+No real roots found
+./qsolve -1 20 20
+Result: -0.9545 20.9545 
+make[1]: Leaving directory '/home/alex/Documents/Current_classes/CS4900-SenDes/CS4900-QuadSolver/src/main'

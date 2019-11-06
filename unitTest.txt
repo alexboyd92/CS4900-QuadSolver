@@ -1,0 +1,5 @@
+make[1]: Entering directory '/home/alex/Documents/Current_classes/CS4900-SenDes/CS4900-QuadSolver/src/testing'
+./buffersizecheck
+gcc -ggdb -Wall -pedantic -std=gnu11    validateTest.c ../validate/validate.o   -o validateTest
+./setItTest ./buffersizecheck ./bufferTest ./solveTest ./validateTest
+make[1]: Leaving directory '/home/alex/Documents/Current_classes/CS4900-SenDes/CS4900-QuadSolver/src/testing'

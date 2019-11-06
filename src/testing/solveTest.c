@@ -37,7 +37,7 @@ assertd_eq("checker", checker, 0);
 
 
 
-
+//Test solvit 100,000 times with large random integers to see if it'll give an error
 for (int i = 0; i < 100000; i++) {
   a= round(100*drand48());
   b= round(100*drand48());

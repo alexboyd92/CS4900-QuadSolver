@@ -1,5 +1,6 @@
 #include "cunit.h"
 #include "../validate/validate.h"
+#include <string.h>
 
 
 
@@ -7,20 +8,22 @@ int main(){
 
 
 //Test to make sure validate returns -1 with bad input
-  char * input=" ";
-  double a=2;
-  double b=1;
-  double c=2;
 
-int checker= Validate(input,0,NULL,&a,&b,&c);
+	char input[2000] ="-1 ";
+	FILE * d=NULL;
+	double a=0;
+	double b=0;
+	double c=0;
 
-assertd_eq("checker", checker, -1);
+	int checker= Validate(input,0,d,&a,&b,&c);
 
-
-
-
+	assertd_eq("checker", checker, 0);
 
 
 
-return 0;
+
+
+
+
+	return 0;
 }

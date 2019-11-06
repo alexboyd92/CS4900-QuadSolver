@@ -6,7 +6,9 @@ main: main.o ../setIt/setIt.o ../getIt/getit.o ../solveIt/solveIt.o ../help/help
 main.o: main.h
 
 test: main
-	./qsolve
+	./qsolve 20 20 20
+	./qsolve 10 1 1
+	./qsolve -1 20 20
 
 clean:
 	rm -f *.o qsolve
