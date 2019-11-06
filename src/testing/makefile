@@ -5,11 +5,18 @@ testAll: setItTest buffersizecheck
 setItTest: ../setIt/setIt.o
 testSetit: setItTest
 	./setItTest
-
 buffersizecheck: ../getIt/getit.h
 
 bufferTest: buffersizecheck
 	./buffersizecheck
+
+
+
+validateTest:../validate/validate.o
+
+
+testValidate: validateTest
+	./validateTest
 
 
 clean:
